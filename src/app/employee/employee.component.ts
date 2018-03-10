@@ -18,7 +18,6 @@ export class EmployeeComponent {
         private _employee_service:EmployeeService
     ){
         this.employees=_employee_service.getAll()
-        
     }
 
     filter_gender(gender:string){

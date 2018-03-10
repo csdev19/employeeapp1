@@ -30,6 +30,9 @@
                 <li>{{employee.email}}</li>
                 <li>{{employee.city}}</li>
                 <li>{{employee.gender}}</li>
+                <li>
+                    <a [routerLink]="['/employee-detail',employee.id]">Ver Detalle</a>
+                </li>
             </ul>
         </li>
     </div>

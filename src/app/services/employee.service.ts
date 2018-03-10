@@ -10,7 +10,7 @@ export class EmployeeService {
         return this.employees
     }
     getEmployee(id):Employee{
-        let employee=this.employees.filter(employee=>(employee.id=id))
+        let employee=this.employees.filter(employee=>(employee.id==id))
         if (employee){
             return employee[0]
         }else{
