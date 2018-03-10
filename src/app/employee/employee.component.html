@@ -1,0 +1,36 @@
+<hr/>
+
+<input type="text" [(ngModel)]="keyword" />
+
+<button (click)="filter_gender('')">Todos</button>
+<button (click)="filter_gender('Male')">Filtrar Hombres</button>
+<button (click)="filter_gender('Female')">Filtrar Mujeres</button>
+<p>{{gender}}</p>
+<ul>
+    <!--Lista de Empleados-->
+    <div *ngFor="let employee of employees">
+        <li *ngIf="(employee.gender==gender || gender=='') && search_name(employee.name) " [ngClass]="{background_blue:employee.gender=='Male',
+                    background_pink:employee.gender=='Female'}">
+            <!--Listado de Atributo-->
+            <div [ngSwitch]="employee.gender">
+                <div *ngSwitchCase="'Male'"></div>
+                <div *ngSwitchCase="'Female'"></div>
+                <div *ngSwitchCase="''" style="height:20px;width:20px;background-color:gray"></div>
+            </div>
+            <!--
+            <div *ngIf="employee.gender=='Male'" style="height:20px;width:20px;background-color:lightblue"></div>
+            <div *ngIf="employee.gender=='Female'" style="height:20px;width:20px;background-color:pink"></div>
+            -->
+            <!--<ul [ngStyle]="{'list-style':'none'}">-->
+            <ul [style.list-style]="'none'">
+                <li>
+                    <span [style.color]="'red'">Nombres:</span> {{employee.name}}
+                </li>
+                <li>{{employee.phone}}</li>
+                <li>{{employee.email}}</li>
+                <li>{{employee.city}}</li>
+                <li>{{employee.gender}}</li>
+            </ul>
+        </li>
+    </div>
+</ul>
